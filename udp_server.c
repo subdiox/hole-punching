@@ -32,7 +32,8 @@ void diep(char *s)
 int main(void)
 {
     struct sockaddr_in si_me, si_other;
-    int s, i, j, slen=sizeof(si_other);
+    int s, i, j;
+    socklen_t slen=sizeof(si_other);
     char buf[BUFLEN];
     struct peer peers[2];
     int n = 0;

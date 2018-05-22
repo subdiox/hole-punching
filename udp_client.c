@@ -18,7 +18,7 @@
 #define PORT 9930
  
 // This is our server's IP address. In case you're wondering, this one is an RFC 5737 address.
-#define SRV_IP "123.57.55.85"
+#define SRV_IP "62.77.156.137"
 //#define SRV_IP "127.0.0.1"
  
 // A small struct to hold a UDP endpoint. We'll use this to hold each peer's endpoint.
@@ -38,7 +38,7 @@ void diep(char *s)
 int main(int argc, char* argv[])
 {
     struct sockaddr_in si_other;
-    int s, i, f, j, k;
+    int s;
     socklen_t slen = sizeof(si_other);
     char buf[BUFLEN];
     struct peer other;
@@ -64,7 +64,7 @@ int main(int argc, char* argv[])
     si_other.sin_port = htons(other.port);
     printf("add peer %s:%d\n", inet_ntoa(si_other.sin_addr), ntohs(si_other.sin_port));
 
-    for (k = 0; k < 10; k++)
+    for (int k = 0; k < 10; k++)
     {
         if (sendto(s, "hi", 2, 0, (struct sockaddr*)(&si_other), slen)==-1)
             diep("sendto()");
